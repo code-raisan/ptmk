@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 id="point">Getting...</h1>
+    <a href="https://www.google.com/maps/" id="link">Open Google Maps</a>
     <button onclick="get()">GetPoint</button>
     <script>
         const get = () =>{
@@ -17,6 +18,7 @@
                     const lat = data.latitude;
                     const lng = data.longitude;
                     document.getElementById("point").innerText = `${lat},${lng}`;
+                    document.getElementById("link").href = `https://www.google.com/maps/@${lat},${lng}`;
                 }, (e) =>{
                     alert(e.code);
                 })
