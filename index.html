@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTMK</title>
+</head>
+<body>
+    <h1 id="point">Getting...</h1>
+    <button onclick="get()">GetPoint</button>
+    <script>
+        const get = () =>{
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function (position){
+                    const data = position.coords;
+                    const lat = data.latitude;
+                    const lng = data.longitude;
+                    document.getElementById("point").innerText = `${lat},${lng}`;
+                }, (e) =>{
+                    alert(e.code);
+                })
+            }else{
+                alert("非対応です");
+            }
+        }
+    </script>
+</body>
+</html>
